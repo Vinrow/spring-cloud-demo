@@ -11,9 +11,9 @@ public class ResponseDto<T> implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private static String SUCCESS_CODE;
+    private static String SUCCESS_CODE = "0";
 
-    private static String SUCCESS_MESSAGE;
+    private static String SUCCESS_MESSAGE = "ok";
 
     /**
      * 错误码

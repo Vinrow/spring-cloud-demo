@@ -1,13 +1,10 @@
 package com.monster.core.response;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.monster.core.annotations.API;
 import com.monster.core.annotations.APIResponseBody;
 import com.monster.core.pojo.Dto.ResponseDto;
 import com.monster.core.support.AnnotationSupport;
 import com.monster.core.support.JsonSupport;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -24,11 +21,7 @@ import java.util.Objects;
 
 @RestControllerAdvice(annotations = {API.class})
 public class ResponseAdvice implements ResponseBodyAdvice<Object> {
-    private static ObjectMapper objectMapper;
-    private static final Logger LOGGER = LoggerFactory.getLogger(ResponseAdvice.class);
-
-    public ResponseAdvice(ObjectMapper objectMapper) {
-        ResponseAdvice.objectMapper = objectMapper;
+    public ResponseAdvice() {
     }
 
     @Override
