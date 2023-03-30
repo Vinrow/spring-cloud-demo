@@ -8,6 +8,7 @@ spring:
       discovery:
         server-addr: localhost:8848
         namespace: e933c8f9-8b2f-4a94-a7fd-3f1f4889ba71
+        register-enabled: false
 management:
   endpoints:
     web:

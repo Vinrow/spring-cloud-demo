@@ -64,5 +64,4 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
         APIResponseBody apiResponseBody = AnnotationSupport.findAnnotation(returnType.getMethod(), APIResponseBody.class);
         return Objects.nonNull(apiResponseBody) && !apiResponseBody.value();
     }
-
 }

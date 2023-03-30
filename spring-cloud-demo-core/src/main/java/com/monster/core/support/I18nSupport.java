@@ -30,7 +30,7 @@ public final class I18nSupport {
             return getMessage(code, args);
         } catch (Exception ex) {
             LOGGER.error("failed to get i18n message by key #{}", code, ex);
+            return defaultMessage;
         }
-        return defaultMessage;
     }
 }
