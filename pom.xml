@@ -26,6 +26,8 @@
         <lombok.version>1.18.26</lombok.version>
         <jakarta.validation-api.version>3.0.0</jakarta.validation-api.version>
         <snakeyaml.version>2.0</snakeyaml.version>
+        <hutool.version>5.8.21</hutool.version>
+        <swagger.version>3.0.0</swagger.version>
         <module.version>1.0.0</module.version>
     </properties>
     <dependencyManagement>
@@ -94,6 +96,26 @@
                 <groupId>com.monster</groupId>
                 <artifactId>spring-cloud-demo-core</artifactId>
                 <version>${module.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bom</artifactId>
+                <version>${hutool.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

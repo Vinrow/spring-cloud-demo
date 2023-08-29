@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.monster.core.json.JacksonAutoConfiguration,\
+  com.monster.core.WebAutoConfiguration
