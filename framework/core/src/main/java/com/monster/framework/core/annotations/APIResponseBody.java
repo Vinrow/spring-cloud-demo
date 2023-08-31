@@ -1,4 +1,4 @@
-package com.monster.core.annotations;
+package com.monster.framework.core.annotations;
 
 import java.lang.annotation.*;
 

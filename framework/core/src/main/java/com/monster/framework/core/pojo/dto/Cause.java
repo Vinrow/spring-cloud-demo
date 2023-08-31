@@ -1,11 +1,9 @@
-package com.monster.core.pojo.Dto;
+package com.monster.framework.core.pojo.dto;
 
-import java.io.Serial;
-import java.io.Serializable;
+import com.monster.framework.core.pojo.entity.SerializableObject;
 
-public class Cause implements Serializable {
-    @Serial
-    private static final long serialVersionUID= 1L;
+
+public class Cause extends SerializableObject {
 
     /**
      * 请求路径

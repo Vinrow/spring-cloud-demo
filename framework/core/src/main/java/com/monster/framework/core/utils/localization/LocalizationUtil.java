@@ -1,4 +1,4 @@
-package com.monster.core.support;
+package com.monster.framework.core.utils.localization;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,18 +6,16 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.util.Assert;
 
-import java.util.Objects;
-
-public final class I18nSupport {
+public final class LocalizationUtil {
     public static final Object[] EMPTY_ARGS = new String[0];
-    private static final Logger LOGGER = LoggerFactory.getLogger(I18nSupport.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LocalizationUtil.class);
     private static MessageSource messageSource;
 
-    private I18nSupport() {
+    private LocalizationUtil() {
     }
 
     public static void init(MessageSource messageSource) {
-        I18nSupport.messageSource = messageSource;
+        LocalizationUtil.messageSource = messageSource;
     }
 
     public static String getMessage(String code, Object... args) {

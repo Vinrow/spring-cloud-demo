@@ -1,6 +1,6 @@
-package com.monster.core.exception;
+package com.monster.framework.core.exception;
 
-import com.monster.core.errors.IError;
+import com.monster.framework.core.errors.IError;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 

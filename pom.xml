@@ -5,12 +5,13 @@
     <packaging>pom</packaging>
     <groupId>com.monster</groupId>
     <artifactId>spring-cloud-demo</artifactId>
-    <version>1.0.0</version>
+    <version>${module.version}</version>
     <name>spring-cloud-demo</name>
     <description>spring cloud demo</description>
     <modules>
         <module>oauth-service</module>
         <module>spring-cloud-demo-core</module>
+        <module>framework</module>
     </modules>
     <properties>
         <java.version>17</java.version>
@@ -28,6 +29,7 @@
         <snakeyaml.version>2.0</snakeyaml.version>
         <hutool.version>5.8.21</hutool.version>
         <swagger.version>3.0.0</swagger.version>
+        <mybatis-plus.version>3.5.3.2</mybatis-plus.version>
         <module.version>1.0.0</module.version>
     </properties>
     <dependencyManagement>
@@ -116,6 +118,12 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

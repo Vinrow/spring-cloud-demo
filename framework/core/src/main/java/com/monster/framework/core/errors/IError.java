@@ -1,4 +1,4 @@
-package com.monster.core.errors;
+package com.monster.framework.core.errors;
 
 @FunctionalInterface
 public interface IError {

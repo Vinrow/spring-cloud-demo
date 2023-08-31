@@ -1,16 +1,12 @@
-package com.monster.core.pojo.Dto;
+package com.monster.framework.core.pojo.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.monster.core.errors.IError;
+import com.monster.framework.core.errors.IError;
+import com.monster.framework.core.pojo.entity.SerializableObject;
 
-import java.io.Serial;
-import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ResponseDto<T> implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
+public class ResponseDTO<T> extends SerializableObject {
     private static String SUCCESS_CODE = "0";
 
     private static String SUCCESS_MESSAGE = "ok";
@@ -32,39 +28,39 @@ public class ResponseDto<T> implements Serializable {
 
     private Cause cause;
 
-    public ResponseDto() {
+    public ResponseDTO() {
     }
 
     public static void init(String code, String message) {
-        ResponseDto.SUCCESS_CODE = code;
-        ResponseDto.SUCCESS_MESSAGE = message;
+        ResponseDTO.SUCCESS_CODE = code;
+        ResponseDTO.SUCCESS_MESSAGE = message;
     }
 
-    public static <T> ResponseDto<T> success(T data) {
+    public static <T> ResponseDTO<T> success(T data) {
         return success(SUCCESS_CODE, SUCCESS_MESSAGE, data);
     }
 
-    public static <T> ResponseDto<T> success(String code, String msg, T data) {
-        return new ResponseDto<T>().setCode(code).setMsg(msg).setData(data);
+    public static <T> ResponseDTO<T> success(String code, String msg, T data) {
+        return new ResponseDTO<T>().setCode(code).setMsg(msg).setData(data);
     }
 
-    public static <T> ResponseDto<T> fail(IError error) {
+    public static <T> ResponseDTO<T> fail(IError error) {
         return fail(error.getCode(), error.getMessage());
     }
 
-    public static <T> ResponseDto<T> fail(String code, String message) {
+    public static <T> ResponseDTO<T> fail(String code, String message) {
         return fail(code, message, null);
     }
 
-    private static <T> ResponseDto<T> fail(String code, String message, Cause cause) {
-        return new ResponseDto<T>().setCode(code).setMsg(message).setCause(cause);
+    private static <T> ResponseDTO<T> fail(String code, String message, Cause cause) {
+        return new ResponseDTO<T>().setCode(code).setMsg(message).setCause(cause);
     }
 
     public String getCode() {
         return code;
     }
 
-    public ResponseDto<T> setCode(String code) {
+    public ResponseDTO<T> setCode(String code) {
         this.code = code;
         return this;
     }
@@ -73,7 +69,7 @@ public class ResponseDto<T> implements Serializable {
         return msg;
     }
 
-    public ResponseDto<T> setMsg(String msg) {
+    public ResponseDTO<T> setMsg(String msg) {
         this.msg = msg;
         return this;
     }
@@ -82,7 +78,7 @@ public class ResponseDto<T> implements Serializable {
         return data;
     }
 
-    public ResponseDto<T> setData(T data) {
+    public ResponseDTO<T> setData(T data) {
         this.data = data;
         return this;
     }
@@ -91,7 +87,7 @@ public class ResponseDto<T> implements Serializable {
         return cause;
     }
 
-    public ResponseDto<T> setCause(Cause cause) {
+    public ResponseDTO<T> setCause(Cause cause) {
         this.cause = cause;
         return this;
     }

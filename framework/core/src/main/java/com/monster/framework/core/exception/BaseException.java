@@ -1,6 +1,7 @@
-package com.monster.core.exception;
+package com.monster.framework.core.exception;
 
-import com.monster.core.errors.IError;
+
+import com.monster.framework.core.errors.IError;
 
 public abstract class BaseException extends RuntimeException {
     private transient IError error;

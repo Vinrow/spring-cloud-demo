@@ -1,4 +1,5 @@
-package com.monster.core.errors;
+package com.monster.framework.core.errors;
+
 
 import org.springframework.http.HttpStatus;
 

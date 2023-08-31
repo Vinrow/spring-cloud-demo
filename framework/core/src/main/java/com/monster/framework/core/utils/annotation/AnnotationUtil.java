@@ -1,4 +1,4 @@
-package com.monster.core.support;
+package com.monster.framework.core.utils.annotation;
 
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.lang.Nullable;
@@ -7,8 +7,8 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Objects;
 
-public final class AnnotationSupport {
-    private AnnotationSupport() {
+public final class AnnotationUtil {
+    private AnnotationUtil() {
     }
 
     public static <A extends Annotation> A findAnnotation(Method method, @Nullable Class<A> annotationType) {

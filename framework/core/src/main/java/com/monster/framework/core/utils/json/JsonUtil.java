@@ -1,4 +1,4 @@
-package com.monster.core.support;
+package com.monster.framework.core.utils.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -9,15 +9,15 @@ import org.springframework.util.StringUtils;
 
 import java.util.Objects;
 
-public final class JsonSupport {
-    private static final Logger LOGGER = LoggerFactory.getLogger(JsonSupport.class);
+public final class JsonUtil {
+    private static final Logger LOGGER = LoggerFactory.getLogger(JsonUtil.class);
     private static ObjectMapper objectMapper;
 
-    private JsonSupport() {
+    private JsonUtil() {
     }
 
     public static void init(ObjectMapper objectMapper) {
-        JsonSupport.objectMapper = objectMapper;
+        JsonUtil.objectMapper = objectMapper;
     }
 
     public static <T> T string2Object(String value, Class<T> clazz) {
@@ -48,6 +48,17 @@ public final class JsonSupport {
                 return objectMapper.writeValueAsString(value);
             } catch (JsonProcessingException ex) {
                 LOGGER.error("failed to deserialize object to string", ex);
+            }
+        }
+        return null;
+    }
+
+    public static String objectToString(Object value) {
+        if (value != null) {
+            try {
+                return objectMapper.writeValueAsString(value);
+            } catch (JsonProcessingException e) {
+                LOGGER.error("objectToString error", e);
             }
         }
         return null;
