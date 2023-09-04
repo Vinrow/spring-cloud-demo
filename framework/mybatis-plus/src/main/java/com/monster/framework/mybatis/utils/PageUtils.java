@@ -7,11 +7,11 @@ import java.util.List;
 
 public class PageUtils {
 
-    public <T> PageResultVO<T> buildPage(IPage<T> page) {
+    public static  <T> PageResultVO<T> buildPage(IPage<T> page) {
         return new PageResultVO<>(page.getCurrent(), page.getSize(), page.getTotal(), page.getRecords());
     }
 
-    public <T> PageResultVO<T> buildPage(IPage<T> page, List<T> rows) {
+    public static  <T> PageResultVO<T> buildPage(IPage<T> page, List<T> rows) {
         return new PageResultVO<>(page.getCurrent(), page.getSize(), page.getTotal(), rows);
     }
 }

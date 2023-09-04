@@ -2,14 +2,18 @@ package com.monster.framework.mybatis;
 
 import com.baomidou.mybatisplus.core.incrementer.IKeyGenerator;
 import com.baomidou.mybatisplus.extension.incrementer.OracleKeyGenerator;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.monster.framework.mybatis.config.MybatisConfig;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Collections;
 
 @Configuration
 @ComponentScan(basePackageClasses = {MybatisAutoConfig.class})
@@ -27,6 +31,14 @@ public class MybatisAutoConfig {
         paginationInterceptor.setOverflow(mybatisConfig.isOverflow());
         paginationInterceptor.setMaxLimit(mybatisConfig.getLimit());
         return paginationInterceptor;
+    }
+
+    @Bean
+    @ConditionalOnBean(value = {PaginationInnerInterceptor.class})
+    public MybatisPlusInterceptor mybatisPlusInterceptor(MybatisConfig config) {
+        MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
+        mybatisPlusInterceptor.setInterceptors(Collections.singletonList(paginationInterceptor(config)));
+        return mybatisPlusInterceptor;
     }
 
     @Bean
